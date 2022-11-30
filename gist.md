@@ -83,7 +83,6 @@ Position Examples:
 Anchors are a type of meta characters that match the position of characters instead of characters themselves. The '^' or caret symbol (when outside of square brackets) matches the start of a line of text.
 
 
-
 In the code below, the regular expression '\w{5}' matches all 5 words characters in a row. 
 ![Anchor](./images/anchor-example.png)
 
@@ -91,13 +90,21 @@ In the code below, the regular expression '\w{5}' matches all 5 words characters
 
 ![Caret Anchor](./images/anchor-example-caret.png)
 
-- The '$' symbol (when outside of square brackets) matches the end of a line of text. 
+- On the other hand, if we add the dollar sign anchor (outside of square brackets) to the end of a regex, we will match at the end of a line of text. 
+
 In the expression '/w{5}$', we will match 5 word characters in a row that only exist at the end of a line.
 ![Dollar Anchor](./images/anchor-example-dollar.png)
 
 Our email matching regex contains both of these anchors. 
-We have a caret (^) anchor that precedes '([a-z0-9_\.-]+)@', meaning our match must occur that all lowercase letters a through z, digits 0-9, underscores, dots, and hyphens before the @ symbol. 
+We have a caret (^) anchor at the very front of our regex. The caret precedes the metacharacters grouped within the first set of parentheses. 
 
+-  ^([a-z0-9_\.-]+)
+
+This means we will match all lowercase letters a through z, digits 0-9, underscores, dots, and hyphens at the beginning of a line of text or at the beginning of input.
+
+We also have a dollar ($) anchor that at the very end of regex. 
+
+- ([a-z\.]{2,6})$
 
 - [Quantifiers](#quantifiers)
 - [Grouping Constructs](#grouping-constructs)
